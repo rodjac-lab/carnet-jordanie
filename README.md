@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# Carnet de Jordanie
 
-## Project info
+Site photo personnel pour raconter un voyage familial en Jordanie, avec une home immersive, un album par moments, une page gastronomie et quelques lectures pour prolonger le voyage.
 
-**URL**: https://lovable.dev/projects/6a119594-68d2-479c-b2aa-bc0034880cb6
+Site publié : https://rodjac-lab.github.io/carnet-jordanie/
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+- React 18
+- Vite
+- TypeScript
+- Tailwind CSS
+- shadcn/ui pour les quelques primitives UI restantes
+- GitHub Pages pour la publication
 
-**Use Lovable**
+## Lancer en local
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6a119594-68d2-479c-b2aa-bc0034880cb6) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Scripts utiles :
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run ci
+npm run build
+npm run preview
+```
 
-**Use GitHub Codespaces**
+## Publication
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Le site est publié automatiquement par GitHub Actions à chaque push sur `main`.
 
-## What technologies are used for this project?
+Le build utilise la base Vite `/carnet-jordanie/`, nécessaire pour GitHub Pages :
 
-This project is built with:
+```ts
+base: "/carnet-jordanie/"
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Les métadonnées de partage sont dans `index.html`, et l'image OpenGraph est `public/og-image.webp`.
 
-## How can I deploy this project?
+## Contenu
 
-Simply open [Lovable](https://lovable.dev/projects/6a119594-68d2-479c-b2aa-bc0034880cb6) and click on Share -> Publish.
+Les photos optimisées WebP utilisées par le site sont dans :
 
-## Can I connect a custom domain to my Lovable project?
+```text
+public/jordan/selected-v1/
+```
 
-Yes, you can!
+Les moments de l'album sont définis dans :
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```text
+src/data/moments.ts
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+La gastronomie et les lectures sont définies dans :
+
+```text
+src/data/foodExperiences.ts
+src/data/readingRecommendations.ts
+```
