@@ -36,11 +36,11 @@ const Food = () => {
                 </span>
               </div>
               <h1 className="font-playfair text-5xl font-bold leading-tight md:text-7xl">
-                Manger en Jordanie, c'est deja voyager.
+                Manger en Jordanie, c'est déjà voyager.
               </h1>
               <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-[#64574d]">
-                En Jordanie, la table arrive souvent comme une halte bienvenue: du pain encore chaud, des assiettes qui
-                se multiplient, le the qui circule, et cette impression que le repas prolonge la route.
+                En Jordanie, la table arrive souvent comme une halte bienvenue : du pain encore chaud, des assiettes qui
+                se multiplient, le thé qui circule, et cette impression que le repas prolonge la route.
               </p>
             </div>
 
@@ -61,20 +61,20 @@ const Food = () => {
         <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <img
             src={image("PXL_20250731_110642120")}
-            alt="Table de mezze a Gerasa"
+            alt="Table de mezze à Gerasa"
             className="h-[360px] w-full rounded-lg object-cover shadow-2xl md:h-[560px]"
             loading="lazy"
           />
           <div>
             <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
-              A table
+              À table
             </p>
             <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
               Le souvenir passe autant par l'assiette que par les sites.
             </h2>
             <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
-              Apres les pierres de Jerash, les ruelles de Salt ou les heures de chaleur, il y a ces tables simples ou
-              tout se pose au milieu. On pioche, on partage, on ralentit. La cuisine devient une autre maniere de
+              Après les pierres de Jerash, les ruelles de Salt ou les heures de chaleur, il y a ces tables simples où
+              tout se pose au milieu. On pioche, on partage, on ralentit. La cuisine devient une autre manière de
               comprendre le pays.
             </p>
           </div>
@@ -87,12 +87,12 @@ const Food = () => {
                 Saveurs
               </p>
               <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-5xl">
-                Des assiettes qui racontent l'hospitalite
+                Des assiettes qui racontent l'hospitalité
               </h2>
             </div>
             <p className="font-inter text-lg leading-8 text-[#64574d]">
-              Rien de solennel ici: des repas de route, des tables familiales, des verres de the, des grillades, du
-              houmous, du mansaf. Juste ce qu'il faut pour retrouver le gout du voyage.
+              Rien de solennel ici : des repas de route, des tables familiales, des verres de thé, des grillades, du
+              houmous, du mansaf. Juste ce qu'il faut pour retrouver le goût du voyage.
             </p>
           </div>
 
@@ -110,23 +110,23 @@ const Food = () => {
                 Restaurants
               </p>
               <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
-                Le gout du voyage tient aussi dans les pauses.
+                Le goût du voyage tient aussi dans les pauses.
               </h2>
               <p className="mt-6 font-inter text-lg leading-8 text-white/70">
-                Un cafe a Salt, une biere fraiche apres une longue journee, un repas improvise quand la chaleur retombe:
+                Un café à Salt, une bière fraîche après une longue journée, un repas improvisé quand la chaleur retombe :
                 ce sont souvent ces moments plus simples qui restent, entre deux paysages immenses.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <img
                 src={image("PXL_20250810_163422281")}
-                alt="Biere Petra en Jordanie"
+                alt="Bière Petra en Jordanie"
                 className="h-72 w-full rounded-lg object-cover"
                 loading="lazy"
               />
               <img
                 src={image("PXL_20250802_103518881")}
-                alt="The et cafe a Salt"
+                alt="Thé et café à Salt"
                 className="mt-10 h-72 w-full rounded-lg object-cover"
                 loading="lazy"
               />

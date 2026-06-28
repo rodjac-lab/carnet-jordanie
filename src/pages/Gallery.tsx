@@ -186,7 +186,7 @@ const Gallery = () => {
                 9 moments pour raconter la Jordanie
               </h1>
               <p className="font-inter text-lg text-muted-foreground max-w-3xl leading-relaxed">
-                Un album pense comme un carnet: grandes sequences pour les paysages, details plus proches pour retrouver l'ambiance du voyage.
+                Un album pensé comme un carnet : grandes séquences pour les paysages, détails plus proches pour retrouver l'ambiance du voyage.
               </p>
             </div>
             <div className="grid grid-cols-3 gap-3">
@@ -246,7 +246,7 @@ const Gallery = () => {
                 Fin de l'album
               </p>
               <h2 className="mt-3 font-playfair text-3xl font-bold md:text-4xl">
-                Revenir au debut ou continuer la visite.
+                Revenir au début ou continuer la visite.
               </h2>
             </div>
             <button

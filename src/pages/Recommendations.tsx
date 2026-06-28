@@ -29,16 +29,16 @@ const Recommendations = () => {
                 Lire la Jordanie pendant qu'on la traverse.
               </h1>
               <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-[#64574d]">
-                Un livre a vraiment accompagne le voyage: le recit d'Abdallah II, entre souvenirs personnels,
-                diplomatie et histoire recente. Le reste de la bibliotheque prolonge cette envie de comprendre le pays
-                au-dela des images.
+                Un livre a vraiment accompagné le voyage : le récit d'Abdallah II, entre souvenirs personnels,
+                diplomatie et histoire récente. Le reste de la bibliothèque prolonge cette envie de comprendre le pays
+                au-delà des images.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <img
                 src={image("PXL_20250805_052621633.PANO")}
-                alt="Le Siq a Petra"
+                alt="Le Siq à Pétra"
                 className="h-96 w-full rounded-lg object-cover"
                 loading="eager"
               />
@@ -55,7 +55,7 @@ const Recommendations = () => {
         <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <img
             src={image("PXL_20250806_183501196.NIGHT")}
-            alt="Petra by Night"
+            alt="Pétra de nuit"
             className="h-[420px] w-full rounded-lg object-cover shadow-2xl md:h-[560px]"
             loading="lazy"
           />
@@ -67,8 +67,8 @@ const Recommendations = () => {
               Un pays se lit aussi entre deux étapes.
             </h2>
             <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
-              Les photos gardent les couleurs du voyage. Les livres, eux, replacent Petra, Amman, Salt ou le Wadi Rum
-              dans une histoire plus large: royaute hachemite, frontieres fragiles, diplomatie, culture bedouine et
+              Les photos gardent les couleurs du voyage. Les livres, eux, replacent Pétra, Amman, Salt ou le Wadi Rum
+              dans une histoire plus large : royauté hachémite, frontières fragiles, diplomatie, culture bédouine et
               cuisine du Moyen-Orient.
             </p>
           </div>
@@ -102,13 +102,13 @@ const Recommendations = () => {
                 Comprendre la Jordanie depuis le palais, mais aussi depuis la route.
               </h2>
               <p className="mt-6 font-inter text-lg leading-8 text-white/75">
-                Ce n'est pas seulement un livre sur la paix au Moyen-Orient. C'est aussi une porte d'entree vers la
-                position unique de la Jordanie: un royaume stable au milieu de lignes de fracture, oblige de composer
-                avec l'histoire palestinienne, l'Irak, Israel, la Syrie, les allies occidentaux et le monde arabe.
+                Ce n'est pas seulement un livre sur la paix au Moyen-Orient. C'est aussi une porte d'entrée vers la
+                position unique de la Jordanie : un royaume stable au milieu de lignes de fracture, obligé de composer
+                avec l'histoire palestinienne, l'Irak, Israël, la Syrie, les alliés occidentaux et le monde arabe.
               </p>
               <p className="mt-5 font-inter text-lg leading-8 text-white/75">
-                Le recit s'arrete un peu tot, au debut des annees 2010, mais il donne une profondeur particuliere au
-                voyage. A lire avant de partir, ou pendant, quand les paysages deviennent aussi une carte politique.
+                Le récit s'arrête un peu tôt, au début des années 2010, mais il donne une profondeur particulière au
+                voyage. À lire avant de partir, ou pendant, quand les paysages deviennent aussi une carte politique.
               </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ const Recommendations = () => {
               </h2>
             </div>
             <p className="font-inter text-lg leading-8 text-[#64574d]">
-              Une selection courte, pas une bibliographie exhaustive: un livre lu sur place, puis quelques pistes pour
+              Une sélection courte, pas une bibliographie exhaustive : un livre lu sur place, puis quelques pistes pour
               relier les souvenirs aux grandes histoires du pays.
             </p>
           </div>

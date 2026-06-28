@@ -24,7 +24,7 @@ const Index = () => {
           <source media="(min-width: 768px)" srcSet={heroDesktopImage} />
           <img
             src={heroMobileImage}
-            alt="Petra"
+            alt="Pétra"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </picture>
@@ -35,7 +35,7 @@ const Index = () => {
           <div className="mx-auto flex w-full max-w-7xl text-white">
             <div className="max-w-4xl drop-shadow-2xl md:max-w-xl lg:max-w-2xl">
               <p className="mb-3 font-inter text-xs font-semibold uppercase tracking-wide text-white/85">
-                31 juillet - 12 aout 2025
+                31 juillet - 12 août 2025
               </p>
               <h1 className="font-playfair text-4xl font-bold leading-[0.95] tracking-normal sm:text-5xl md:text-5xl lg:text-6xl">
                 Carnet de Jordanie
@@ -47,10 +47,10 @@ const Index = () => {
 
       <section className="mx-auto max-w-5xl px-5 py-20 text-center md:py-24">
         <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
-          31 juillet - 12 aout 2025
+          31 juillet - 12 août 2025
         </p>
         <h2 className="mt-5 font-playfair text-4xl font-bold leading-tight md:text-6xl">
-          Deux semaines de pierre, de desert, de chaleur et de souvenirs partages.
+          Deux semaines de pierre, de désert, de chaleur et de souvenirs partagés.
         </h2>
       </section>
 
@@ -61,10 +61,10 @@ const Index = () => {
             <span className="font-inter text-sm font-semibold uppercase tracking-wide">Le ton du voyage</span>
           </div>
           <h2 className="font-playfair text-5xl font-bold leading-tight md:text-6xl">
-            La Jordanie en grand, sans perdre les petits details.
+            La Jordanie en grand, sans perdre les petits détails.
           </h2>
           <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
-            Petra, Dana et Wadi Rum donnent l'ampleur. Les repas, les rues, les pauses et les visages ramènent le voyage vers ce qu'on a vraiment vécu ensemble.
+            Pétra, Dana et le Wadi Rum donnent l'ampleur. Les repas, les rues, les pauses et les visages ramènent le voyage vers ce que nous avons vraiment vécu ensemble.
           </p>
           <Button asChild className="mt-8 rounded-full bg-[#191512] px-7 text-white hover:bg-[#2a211b]">
             <Link to="/gallery">
@@ -77,7 +77,7 @@ const Index = () => {
         <div>
           <img
             src={wadiRumBalloonImage}
-            alt="Vue aerienne du Wadi Rum depuis la montgolfiere"
+            alt="Vue aérienne du Wadi Rum depuis la montgolfière"
             className="h-[340px] w-full rounded-lg object-cover shadow-2xl md:h-[560px]"
             loading="lazy"
           />
@@ -89,19 +89,19 @@ const Index = () => {
           <div className="grid grid-cols-2 gap-4">
             <img
               src={ammanDinnerImage}
-              alt="Repas partage en Jordanie"
+              alt="Repas partagé en Jordanie"
               className="h-72 w-full rounded-lg object-cover"
               loading="lazy"
             />
             <img
               src={saltMarketImage}
-              alt="Marche anime a Salt"
+              alt="Marché animé à Salt"
               className="mt-14 h-72 w-full rounded-lg object-cover"
               loading="lazy"
             />
             <img
               src={petraNightImage}
-              alt="Petra de nuit"
+              alt="Pétra de nuit"
               className="col-span-2 h-80 w-full rounded-lg object-cover"
               loading="lazy"
             />
@@ -112,10 +112,10 @@ const Index = () => {
               <span className="font-inter text-sm font-semibold uppercase tracking-wide">Contrastes jordaniens</span>
             </div>
             <h2 className="font-playfair text-5xl font-bold leading-tight md:text-6xl">
-              Un voyage entre histoire, desert, tables et rencontres.
+              Un voyage entre histoire, désert, tables et rencontres.
             </h2>
             <p className="mt-6 font-inter text-lg leading-8 text-white/70">
-              La Jordanie passe d'une cite antique a un marche vivant, d'un repas partage a la nuit de Petra. C'est cette variete qui donne au voyage son rythme.
+              La Jordanie passe d'une cité antique à un marché vivant, d'un repas partagé à la nuit de Pétra. C'est cette variété qui donne au voyage son rythme.
             </p>
           </div>
         </div>
@@ -134,10 +134,10 @@ const Index = () => {
             <span className="font-inter text-sm font-semibold uppercase tracking-wide">Album photo</span>
           </div>
           <h2 className="font-playfair text-5xl font-bold leading-tight">
-            La Jordanie moderne apparait aussi dans ses villes.
+            La Jordanie moderne apparaît aussi dans ses villes.
           </h2>
           <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
-            Amman, Salt et les rues du retour ajoutent une autre image du pays: commerces ouverts tard, restaurants, circulation, vitrines et scenes de ville apres les grands paysages.
+            Amman, Salt et les rues du retour ajoutent une autre image du pays : commerces ouverts tard, restaurants, circulation, vitrines et scènes de ville après les grands paysages.
           </p>
           <Button asChild className="mt-8 rounded-full bg-[#191512] px-7 text-white hover:bg-[#2a211b]">
             <Link to="/gallery">

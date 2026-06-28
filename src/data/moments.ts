@@ -14,11 +14,11 @@ const image = (name: string) => `${import.meta.env.BASE_URL}jordan/selected-v1/$
 export const jordanMoments: JordanMoment[] = [
   {
     slug: "amman",
-    title: "Arriver a Amman",
+    title: "Arriver à Amman",
     eyebrow: "Ville",
-    dates: "1 et 12 aout 2025",
+    dates: "1 et 12 août 2025",
     place: "Amman",
-    summary: "Premieres vues sur la ville, citadelle, marches et derniers repas avant le retour.",
+    summary: "Premières vues sur la ville, citadelle, marchés et derniers repas avant le retour.",
     cover: image("PXL_20250801_071850215"),
     images: [
       image("PXL_20250801_071850215"),
@@ -34,7 +34,7 @@ export const jordanMoments: JordanMoment[] = [
     eyebrow: "Nord antique",
     dates: "31 juillet 2025",
     place: "Jerash, Ajloun",
-    summary: "Colonnes romaines, theatre, pierre claire et premiere grande plongee dans l'histoire jordanienne.",
+    summary: "Colonnes romaines, théâtre, pierre claire et première grande plongée dans l'histoire jordanienne.",
     cover: image("PXL_20250731_074208069"),
     images: [
       image("PXL_20250731_070457590"),
@@ -47,11 +47,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "chateaux-desert",
-    title: "Chateaux du desert",
+    title: "Châteaux du désert",
     eyebrow: "Route",
-    dates: "1 aout 2025",
+    dates: "1 août 2025",
     place: "Est jordanien",
-    summary: "Une journee de route, de fresques et de petits palais poses dans le mineral.",
+    summary: "Une journée de route, de fresques et de petits palais posés dans le minéral.",
     cover: image("PXL_20250801_130723270"),
     images: [
       image("PXL_20250801_111830966"),
@@ -64,11 +64,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "nebo-madaba",
-    title: "Bethanie, Madaba et le mont Nebo",
-    eyebrow: "Mosaiques",
-    dates: "2, 3, 10 et 11 aout 2025",
-    place: "Vallee du Jourdain, Madaba, Nebo",
-    summary: "Un chapitre plus calme, entre lieux bibliques, mosaiques et panoramas sur la vallee.",
+    title: "Béthanie, Madaba et le mont Nebo",
+    eyebrow: "Mosaïques",
+    dates: "2, 3, 10 et 11 août 2025",
+    place: "Vallée du Jourdain, Madaba, Nebo",
+    summary: "Un chapitre plus calme, entre lieux bibliques, mosaïques et panoramas sur la vallée.",
     cover: image("PXL_20250803_091109155.PANO"),
     images: [
       image("PXL_20250802_130052563"),
@@ -80,11 +80,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "dana",
-    title: "Dana, falaise et lumiere du soir",
+    title: "Dana, falaise et lumière du soir",
     eyebrow: "Nature",
-    dates: "3 et 4 aout 2025",
+    dates: "3 et 4 août 2025",
     place: "Dana",
-    summary: "La transition vers le sud: reliefs secs, sentiers, marche avec guide et lumiere basse.",
+    summary: "La transition vers le sud : reliefs secs, sentiers, balade avec un guide et lumière basse.",
     cover: image("PXL_20250803_160804223"),
     images: [
       image("PXL_20250804_052159339"),
@@ -96,11 +96,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "petra-siq",
-    title: "Petra, le Siq et le Tresor",
-    eyebrow: "Petra",
-    dates: "5 aout 2025",
+    title: "Pétra, le Siq et le Trésor",
+    eyebrow: "Pétra",
+    dates: "5 août 2025",
     place: "Wadi Musa",
-    summary: "Le coeur du voyage: entree dans le Siq, facades nabateennes et premiere apparition du Tresor.",
+    summary: "Le cœur du voyage : entrée dans le Siq, façades nabatéennes et première apparition du Trésor.",
     cover: image("PXL_20250805_055643148"),
     images: [
       image("PXL_20250805_052136393.PANO"),
@@ -112,11 +112,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "petra-night",
-    title: "Petra, hauteurs et nuit",
-    eyebrow: "Monastere",
-    dates: "6 aout 2025",
-    place: "Petra",
-    summary: "Deuxieme jour a Petra, plus vertical, puis le site aux bougies apres la tombee de la nuit.",
+    title: "Pétra, hauteurs et nuit",
+    eyebrow: "Monastère",
+    dates: "6 août 2025",
+    place: "Pétra",
+    summary: "Deuxième jour à Pétra, plus vertical, puis le site aux bougies après la tombée de la nuit.",
     cover: image("PXL_20250806_183501196.NIGHT"),
     images: [
       image("PXL_20250806_071811368"),
@@ -130,8 +130,8 @@ export const jordanMoments: JordanMoment[] = [
   {
     slug: "wadi-rum",
     title: "Wadi Rum, piste et camp",
-    eyebrow: "Desert",
-    dates: "7 aout 2025",
+    eyebrow: "Désert",
+    dates: "7 août 2025",
     place: "Wadi Rum",
     summary: "Pick-up dans le sable, falaises rouges, campement et coucher de soleil.",
     cover: image("PXL_20250807_162104366.PANO"),
@@ -145,11 +145,11 @@ export const jordanMoments: JordanMoment[] = [
   },
   {
     slug: "ballon-mer",
-    title: "Du ballon a la Mer Morte",
+    title: "Du ballon à la mer Morte",
     eyebrow: "Final",
-    dates: "8 et 10 aout 2025",
+    dates: "8 et 10 août 2025",
     place: "Wadi Rum, Aqaba, Mer Morte",
-    summary: "Le desert vu d'en haut, puis une derniere sequence d'eau, de chaleur et de sel.",
+    summary: "Le désert vu d'en haut, puis une dernière séquence d'eau, de chaleur et de sel.",
     cover: image("PXL_20250808_033623612.PANO"),
     images: [
       image("PXL_20250808_033623612.PANO"),
