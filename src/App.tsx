@@ -6,12 +6,9 @@ import { Suspense, lazy } from "react";
 
 // Lazy load all pages except Index (needed immediately)
 import Index from "./pages/Index";
-const Journal = lazy(() => import("./pages/Journal"));
 const Food = lazy(() => import("./pages/Food"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Recommendations = lazy(() => import("./pages/Recommendations"));
-const Editor = lazy(() => import("./pages/Editor"));
-const Studio = lazy(() => import("./pages/Studio"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component for Suspense fallbacks
@@ -26,7 +23,7 @@ const LoadingPage = () => (
 
 const App = () => {
   // Use basename only in production (GitHub Pages), not in dev
-  const basename = import.meta.env.PROD ? "/adorable-hello-start/" : "/";
+  const basename = import.meta.env.PROD ? "/carnet-jordanie/" : "/";
 
   return (
     <TooltipProvider>
@@ -36,12 +33,9 @@ const App = () => {
       <Suspense fallback={<LoadingPage />}>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/journal" element={<Journal />} />
           <Route path="/food" element={<Food />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/recommendations" element={<Recommendations />} />
-          <Route path="/editor" element={<Editor />} />
-          <Route path="/studio" element={<Studio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

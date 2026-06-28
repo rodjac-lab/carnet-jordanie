@@ -1,53 +1,264 @@
 import { Header } from "@/components/Header";
-import { Suspense, lazy } from "react";
+import { jordanMoments, type JordanMoment } from "@/data/moments";
+import { X } from "lucide-react";
+import { useState } from "react";
 
-// Lazy load the simplified Map component
-const SimpleMap = lazy(() => import("@/components/SimpleMap"));
+const featuredSlugs = new Set(["petra-siq", "wadi-rum", "ballon-mer"]);
 
-// Loading component for the Map
-const MapLoading = () => (
-  <div className="h-[500px] flex items-center justify-center rounded-lg border bg-card">
-    <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-      <p className="text-muted-foreground">Chargement de la carte interactive...</p>
-    </div>
-  </div>
+const layoutBySlug: Record<string, "cinema" | "split" | "mosaic"> = {
+  amman: "split",
+  "jerash-ajloun": "mosaic",
+  "chateaux-desert": "split",
+  "nebo-madaba": "mosaic",
+  dana: "split",
+  "petra-siq": "cinema",
+  "petra-night": "mosaic",
+  "wadi-rum": "cinema",
+  "ballon-mer": "cinema",
+};
+
+const Photo = ({
+  src,
+  alt,
+  className,
+  onOpen,
+  fit = "cover",
+}: {
+  src: string;
+  alt: string;
+  className: string;
+  onOpen: (photo: { src: string; alt: string }) => void;
+  fit?: "cover" | "contain";
+}) => (
+  <button
+    type="button"
+    className={`group block w-full overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${fit === "contain" ? "bg-[#efe8df]" : ""} ${className}`}
+    onClick={() => onOpen({ src, alt })}
+  >
+    <img
+      src={src}
+      alt={alt}
+      className={
+        fit === "contain"
+          ? "h-auto w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+          : "h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+      }
+      loading="lazy"
+    />
+  </button>
 );
 
+const MomentPhotos = ({
+  moment,
+  onOpen,
+}: {
+  moment: JordanMoment;
+  onOpen: (photo: { src: string; alt: string }) => void;
+}) => {
+  const layout = layoutBySlug[moment.slug] ?? "mosaic";
+
+  if (layout === "cinema") {
+    if (moment.slug === "wadi-rum") {
+      return (
+        <div className="grid gap-3">
+          <Photo
+            src={moment.images[0]}
+            alt={`${moment.title} - photo principale`}
+            className="aspect-[16/10] lg:aspect-[16/8]"
+            onOpen={onOpen}
+          />
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
+            {moment.images.slice(1).map((photo, index) => (
+              <Photo
+                key={photo}
+                src={photo}
+                alt={`${moment.title} - detail ${index + 1}`}
+                className="shadow-sm"
+                fit="contain"
+                onOpen={onOpen}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="grid gap-3 lg:grid-cols-[1.35fr_0.65fr]">
+        <Photo
+          src={moment.images[0]}
+          alt={`${moment.title} - photo principale`}
+          className="aspect-[16/10] lg:aspect-auto lg:h-[620px]"
+          onOpen={onOpen}
+        />
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+          {moment.images.slice(1, 5).map((photo, index) => (
+            <Photo
+              key={photo}
+              src={photo}
+              alt={`${moment.title} - detail ${index + 1}`}
+              className="aspect-[4/5] lg:h-[148px] lg:aspect-auto"
+              onOpen={onOpen}
+            />
+          ))}
+        </div>
+        {moment.images.slice(5).map((photo, index) => (
+          <Photo
+            key={photo}
+            src={photo}
+            alt={`${moment.title} - souvenir ${index + 1}`}
+            className="aspect-[4/3] lg:aspect-[16/9]"
+            onOpen={onOpen}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (layout === "split") {
+    return (
+      <div className="grid gap-3 md:grid-cols-[0.95fr_1.05fr]">
+        <Photo
+          src={moment.images[0]}
+          alt={`${moment.title} - photo principale`}
+          className="aspect-[4/5] md:h-[560px] md:aspect-auto"
+          onOpen={onOpen}
+        />
+        <div className="grid grid-cols-2 gap-3">
+          {moment.images.slice(1).map((photo, index) => (
+            <Photo
+              key={photo}
+              src={photo}
+              alt={`${moment.title} - photo ${index + 2}`}
+              className={index === 0 ? "col-span-2 aspect-[16/9]" : "aspect-[4/5]"}
+              onOpen={onOpen}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-6">
+      {moment.images.map((photo, index) => {
+        const classNames = [
+          "col-span-2 aspect-[4/5] md:col-span-3 md:row-span-2 md:h-[520px] md:aspect-auto",
+          "aspect-[4/5] md:col-span-3 md:h-[250px] md:aspect-auto",
+          "aspect-[4/5] md:col-span-2 md:h-[250px] md:aspect-auto",
+          "aspect-[4/5] md:col-span-2 md:h-[250px] md:aspect-auto",
+          "aspect-[4/5] md:col-span-2 md:h-[250px] md:aspect-auto",
+          "col-span-2 aspect-[16/9] md:col-span-6 md:h-[300px] md:aspect-auto",
+        ];
+
+        return (
+          <Photo
+            key={photo}
+            src={photo}
+            alt={`${moment.title} - photo ${index + 1}`}
+            className={classNames[index] ?? "aspect-[4/5] md:col-span-2 md:h-[250px] md:aspect-auto"}
+            onOpen={onOpen}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
 const Gallery = () => {
+  const [activePhoto, setActivePhoto] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-amber-950 dark:via-orange-950 dark:to-red-950 pt-20">
-        {/* Hero Section */}
-        <div className="relative pt-16 pb-24 bg-gradient-to-r from-primary via-secondary to-accent text-white overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative container mx-auto px-4 text-center">
-            <h1 className="text-6xl font-playfair font-bold mb-6 animate-fade-in">Carte Interactive</h1>
-            <p className="text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in">
-              Explorez l'itinéraire du voyage en Jordanie avec les lieux visités jour par jour
-            </p>
+      <div className="min-h-screen bg-background pt-24">
+        <section className="px-4 py-14">
+          <div className="container mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-wide text-primary mb-4">
+                Album
+              </p>
+              <h1 className="font-playfair text-5xl md:text-7xl font-bold mb-6">
+                9 moments pour raconter la Jordanie
+              </h1>
+              <p className="font-inter text-lg text-muted-foreground max-w-3xl leading-relaxed">
+                Un album pense comme un carnet: grandes sequences pour les paysages, details plus proches pour retrouver l'ambiance du voyage.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {[jordanMoments[0].images[2], jordanMoments[4].images[1], jordanMoments[8].images[4]].map((photo) => (
+                <img
+                  key={photo}
+                  src={photo}
+                  alt="Souvenir de voyage en Jordanie"
+                  className="h-72 w-full rounded-lg object-cover even:mt-10"
+                  loading="eager"
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-2xl mx-auto text-center space-y-4 p-8 bg-amber-100 dark:bg-amber-900 rounded-lg">
-            <h2 className="text-2xl font-bold">🗺️ Carte Interactive</h2>
-            <p className="text-muted-foreground">
-              La carte interactive nécessite un token Mapbox valide.
-              Elle sera réactivée en Phase 3 avec une configuration complète.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              En attendant, consultez les pages <strong>Journal</strong>, <strong>Gastronomie</strong> et <strong>Lectures</strong> pour découvrir le voyage !
-            </p>
-          </div>
-          {/* Temporairement désactivé - Token Mapbox invalide
-          <Suspense fallback={<MapLoading />}>
-            <SimpleMap />
-          </Suspense>
-          */}
-        </div>
+        <section className="container mx-auto max-w-7xl px-4 pb-20 space-y-24">
+          {jordanMoments.map((moment, index) => (
+            <article
+              key={moment.slug}
+              className={
+                featuredSlugs.has(moment.slug)
+                  ? "border-t border-border/70 pt-10 space-y-8"
+                  : "grid gap-6 border-t border-border/70 pt-10 lg:grid-cols-[0.78fr_1.22fr]"
+              }
+            >
+              <div className="self-start">
+                <p className="font-inter text-xs font-semibold uppercase tracking-wide text-primary mb-3">
+                  {String(index + 1).padStart(2, "0")} · {moment.eyebrow} · {moment.dates}
+                </p>
+                <h2
+                  className={
+                    featuredSlugs.has(moment.slug)
+                      ? "font-playfair text-4xl md:text-6xl font-bold mb-3"
+                      : "font-playfair text-3xl md:text-4xl font-bold mb-3"
+                  }
+                >
+                  {moment.title}
+                </h2>
+                <p className="font-inter text-sm font-medium text-muted-foreground mb-4">
+                  {moment.place}
+                </p>
+                <p className="font-inter text-base text-muted-foreground leading-relaxed">
+                  {moment.summary}
+                </p>
+              </div>
+
+              <MomentPhotos moment={moment} onOpen={setActivePhoto} />
+            </article>
+          ))}
+        </section>
       </div>
+
+      {activePhoto && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setActivePhoto(null)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+            onClick={() => setActivePhoto(null)}
+          >
+            <span className="sr-only">Fermer la photo</span>
+            <X className="h-6 w-6" />
+          </button>
+          <img
+            src={activePhoto.src}
+            alt={activePhoto.alt}
+            className="max-h-[92vh] max-w-[94vw] rounded-lg object-contain shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 };

@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/adorable-hello-start/' : '/',
+  base: mode === 'production' ? '/carnet-jordanie/' : '/',
   server: {
     host: "::",
     port: 8080,

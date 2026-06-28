@@ -5,6 +5,7 @@
  */
 
 type LogLevel = 'debug' | 'info' | 'warn' | 'error';
+type LogArgument = unknown;
 
 interface LoggerConfig {
   isDevelopment: boolean;
@@ -41,7 +42,7 @@ class Logger {
     };
   }
 
-  private log(level: LogLevel, message: string, ...args: any[]): void {
+  private log(level: LogLevel, message: string, ...args: LogArgument[]): void {
     // In production, skip debug logs
     if (!this.config.isDevelopment && level === 'debug') {
       return;
@@ -65,28 +66,28 @@ class Logger {
   /**
    * Debug logs - only shown in development
    */
-  debug(message: string, ...args: any[]): void {
+  debug(message: string, ...args: LogArgument[]): void {
     this.log('debug', message, ...args);
   }
 
   /**
    * Info logs - shown in all environments
    */
-  info(message: string, ...args: any[]): void {
+  info(message: string, ...args: LogArgument[]): void {
     this.log('info', message, ...args);
   }
 
   /**
    * Warning logs - shown in all environments
    */
-  warn(message: string, ...args: any[]): void {
+  warn(message: string, ...args: LogArgument[]): void {
     this.log('warn', message, ...args);
   }
 
   /**
    * Error logs - shown in all environments and reported externally
    */
-  error(message: string, ...args: any[]): void {
+  error(message: string, ...args: LogArgument[]): void {
     this.log('error', message, ...args);
   }
 
@@ -94,7 +95,7 @@ class Logger {
    * Report error to external monitoring service (e.g., Sentry)
    * Currently a placeholder for future implementation
    */
-  private reportError(message: string, args: any[]): void {
+  private reportError(message: string, args: LogArgument[]): void {
     // TODO: Integrate with error monitoring service
     // Example: Sentry.captureException(new Error(message), { extra: args });
   }

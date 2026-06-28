@@ -4,8 +4,21 @@ import { logger } from '@/lib/logger';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useNavigate } from 'react-router-dom';
 
+declare global {
+  interface Window {
+    navigateToJournal?: () => void;
+  }
+}
+
+type JordanLocation = {
+  name: string;
+  day: number;
+  coords: [number, number];
+  description: string;
+};
+
 // Simple predefined locations for Jordan trip
-const jordanLocations = [
+const jordanLocations: JordanLocation[] = [
   { name: "Amman", day: 1, coords: [35.9106, 31.9539], description: "Capitale de la Jordanie" },
   { name: "Jerash", day: 2, coords: [35.8998, 32.2811], description: "Ruines romaines" },
   { name: "Ajloun", day: 2, coords: [35.7519, 32.3326], description: "Château d'Ajloun" },
@@ -54,7 +67,7 @@ const SimpleMap = () => {
       // Calculate bounds to fit all locations
       const bounds = new mapboxgl.LngLatBounds();
       jordanLocations.forEach(location => {
-        bounds.extend(location.coords as [number, number]);
+        bounds.extend(location.coords);
       });
 
       // Fit map to show all locations
@@ -135,13 +148,13 @@ const SimpleMap = () => {
 
         // Add marker to map
         new mapboxgl.Marker(markerElement)
-          .setLngLat(location.coords as [number, number])
+          .setLngLat(location.coords)
           .setPopup(popup)
           .addTo(map.current!);
       });
 
       // Add navigation function to window for popup buttons
-      (window as any).navigateToJournal = () => {
+      window.navigateToJournal = () => {
         navigate('/journal');
       };
     });
@@ -151,7 +164,7 @@ const SimpleMap = () => {
       // Clean up map instance
       map.current?.remove();
       // Clean up window function to prevent memory leak
-      delete (window as any).navigateToJournal;
+      delete window.navigateToJournal;
     };
   }, [navigate]);
 

@@ -11,35 +11,35 @@ export const foodExperiences: FoodExperience[] = [
     name: 'Mansaf',
     type: 'Plat national',
     description:
-      "Le plat emblématique jordanien : agneau cuit dans une sauce au yaourt fermenté (jameed), servi sur un lit de riz et mangé traditionnellement avec les mains.",
+      "Le grand plat de partage jordanien: du riz, une sauce au yaourt fermente, une viande longuement preparee, et cette generosite qui remplit la table autant que les assiettes.",
     experience:
-      "Partagé lors d'un déjeuner familial à Amman. L'expérience était autant sociale que gustative - toute la famille mange dans le même plat, créant une intimité particulière.",
+      "A Salt, le mansaf avait quelque chose de ceremoniel sans etre guinde. On se souvient de la nappe, des plats autour, des gestes simples et de cette cuisine qui invite tout le monde au meme rythme.",
     rating: 5,
-    location: 'Restaurant familial, Amman',
+    location: 'Salt',
     price: 'Modéré',
   },
   {
     id: 'falafel-houmous',
-    name: 'Falafel et Houmous',
-    type: 'Street food',
+    name: 'Houmous et mezze',
+    type: 'Mezze',
     description:
-      "Boulettes de pois chiches frites servies avec houmous crémeux, tahini, et légumes frais dans du pain pita chaud.",
+      "Houmous cremeux, salades fraiches, legumes, pain chaud, petites assiettes colorees: le genre de table ou l'on commence par gouter un peu, puis ou l'on revient sans cesse.",
     experience:
-      "Découvert dans une petite échoppe près du théâtre romain. Le propriétaire m'a expliqué ses secrets : pois chiches trempés 24h et épices moulues chaque matin.",
+      "A Gerasa, apres les colonnes et la poussiere claire du site antique, ce repas avait tout du refuge: simple, genereux, vivant. Une pause qui remet de l'energie dans toute la journee.",
     rating: 4,
-    location: 'Downtown Amman',
+    location: 'Gerasa',
     price: 'Très abordable',
   },
   {
-    id: 'knafeh',
-    name: 'Knafeh',
-    type: 'Dessert',
+    id: 'grillades',
+    name: 'Grillades',
+    type: 'Plat partagé',
     description:
-      "Dessert traditionnel au fromage fondu recouvert de cheveux d'ange (kataifi) et arrosé de sirop parfumé à l'eau de rose.",
+      "Des grillades posees au centre, du pain pour attraper les morceaux, quelques garnitures, des salades: une cuisine directe, franche, faite pour etre partagee.",
     experience:
-      "Une révélation ! La version de Nablus dégustée à Amman était parfaite : croquant du dessus, fondant à l'intérieur. Un équilibre sucré-salé surprenant.",
+      "Ces repas n'ont pas besoin d'etre mis en scene. Ils disent surtout les restaurants simples, les conversations qui continuent, les plats qui circulent et les journees qui se terminent bien.",
     rating: 5,
-    location: 'Pâtisserie Al-Aker, Amman',
+    location: 'Gerasa',
     price: 'Abordable',
   },
   {
@@ -47,9 +47,9 @@ export const foodExperiences: FoodExperience[] = [
     name: 'Thé à la menthe et café arabe',
     type: 'Boissons',
     description:
-      "Thé noir parfumé à la menthe fraîche et café arabe (qahwa) parfumé à la cardamome, servis dans de petits verres.",
+      "The brulant, menthe, cafe a la cardamome, petits verres poses sur la table: en Jordanie, boire quelque chose ensemble fait deja partie de l'accueil.",
     experience:
-      "Rituel quotidien dans chaque lieu visité. Le thé accompagne chaque conversation, chaque pause. Le café arabe, plus corsé, ponctue les moments importants.",
+      "A Salt comme ailleurs, le the et le cafe marquent les pauses. On s'assoit quelques minutes, on regarde la rue, on reprend souffle. Le voyage continue, mais plus doucement.",
     rating: 4,
     location: 'Partout',
     price: 'Très abordable',

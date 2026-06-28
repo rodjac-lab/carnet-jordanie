@@ -1,9 +1,12 @@
 import { memo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
-import { getReadingRecommendations, BookRecommendation } from "@/data/readingRecommendations";
+import { BookRecommendation, getReadingRecommendations } from "@/data/readingRecommendations";
+import { BookOpenCheck, ExternalLink, Star } from "lucide-react";
+
+const image = (name: string) => `${import.meta.env.BASE_URL}jordan/selected-v1/${name}.webp`;
+
+const isUsableLink = (url: string) => url.startsWith("http") && !url.includes("...");
 
 const Recommendations = () => {
   const recommendations = getReadingRecommendations();
@@ -11,103 +14,124 @@ const Recommendations = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-amber-950 dark:via-orange-950 dark:to-red-950 pt-20">
-        {/* Hero Section */}
-        <div className="relative pt-16 pb-24 bg-gradient-to-r from-primary via-secondary to-accent text-white overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative container mx-auto px-4 text-center">
-            <h1 className="text-6xl font-playfair font-bold mb-6 animate-fade-in">Recommandations de Lecture</h1>
-            <p className="text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in">
-              Livres pour approfondir la découverte de la Jordanie et du Moyen-Orient
+      <main className="min-h-screen bg-[#f7f2ea] pt-24 text-[#191512]">
+        <section className="px-5 py-16 md:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <div className="mb-5 flex items-center gap-3 text-[#9f4f35]">
+                <BookOpenCheck className="h-5 w-5" />
+                <span className="font-inter text-sm font-semibold uppercase tracking-wide">
+                  Lectures
+                </span>
+              </div>
+              <h1 className="font-playfair text-5xl font-bold leading-tight md:text-7xl">
+                Quelques portes d'entree pour prolonger le voyage.
+              </h1>
+              <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-[#64574d]">
+                Cette page reste secondaire: elle rassemble des pistes pour comprendre Petra, le Wadi Rum, les Bedouins,
+                la cuisine et le contexte du pays.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <img
+                src={image("PXL_20250805_052621633.PANO")}
+                alt="Le Siq a Petra"
+                className="h-96 w-full rounded-lg object-cover"
+                loading="eager"
+              />
+              <img
+                src={image("PXL_20250807_162104366.PANO")}
+                alt="Wadi Rum au coucher du soleil"
+                className="mt-12 h-96 w-full rounded-lg object-cover"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <img
+            src={image("PXL_20250806_183501196.NIGHT")}
+            alt="Petra by Night"
+            className="h-[420px] w-full rounded-lg object-cover shadow-2xl md:h-[560px]"
+            loading="lazy"
+          />
+          <div>
+            <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
+              Comprendre
+            </p>
+            <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
+              Les livres viennent apres les photos.
+            </h2>
+            <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
+              L'album porte le souvenir. Les lectures donnent un peu de profondeur: histoire nabateenne, culture
+              bedouine, geopolitique et cuisine du Moyen-Orient.
             </p>
           </div>
-        </div>
+        </section>
 
-        <div className="container mx-auto px-4 py-16 space-y-8">
-          {/* Introduction */}
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">📚 Enrichir l'expérience du voyage</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                Un voyage ne se limite pas aux sites visités. Ces lectures m'ont permis de mieux comprendre
-                l'histoire, la culture et les enjeux contemporains de la Jordanie. Elles transforment la visite
-                en véritable immersion culturelle.
+        <section className="mx-auto max-w-7xl px-5 py-20">
+          <div className="mb-10 grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-end">
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
+                Bibliotheque
               </p>
-            </CardContent>
-          </Card>
+              <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-5xl">
+                Pistes de lecture
+              </h2>
+            </div>
+            <p className="font-inter text-lg leading-8 text-[#64574d]">
+              On pourra remplacer les references plus tard si tu as tes propres livres. La mise en page est maintenant
+              raccord avec le reste du site.
+            </p>
+          </div>
 
-          <div className="grid gap-8 max-w-4xl mx-auto">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {recommendations.map((book) => (
               <BookRecommendationCard key={book.id} book={book} />
             ))}
           </div>
-
-          {/* Cultural Note */}
-          <Card className="mt-12 max-w-4xl mx-auto shadow-lg border-l-4 border-l-primary">
-            <CardHeader>
-              <CardTitle className="text-xl text-primary">🌟 L'importance de la préparation culturelle</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                Préparer un voyage par la lecture transforme complètement l'expérience. Connaître l'histoire
-                des Nabatéens avant de visiter Petra, comprendre les enjeux géopolitiques actuels, ou saisir
-                les subtilités culturelles permet d'apprécier chaque moment avec plus de profondeur et de respect.
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground">Bon voyage littéraire ! 📖✈️</p>
-          </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 };
 
-const BookRecommendationCard = memo(({ book }: { book: BookRecommendation }) => {
-  return (
-    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+const BookRecommendationCard = memo(
+  ({ book }: { book: BookRecommendation }) => {
+    return (
+      <article className="flex min-h-[360px] flex-col rounded-lg bg-white p-6 shadow-sm">
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <span className="font-inter text-xs font-semibold uppercase tracking-wide text-[#9f4f35]">
             {book.type}
-          </Badge>
-          <span aria-label={`Note ${book.rating} sur 5`}>{"⭐".repeat(book.rating)}</span>
+          </span>
+          <span className="flex gap-1 text-[#b9573c]" aria-label={`Note ${book.rating} sur 5`}>
+            {Array.from({ length: book.rating }, (_, index) => (
+              <Star key={index} className="h-4 w-4 fill-current" />
+            ))}
+          </span>
         </div>
-        <CardTitle className="text-2xl">{book.title}</CardTitle>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <span>✍️</span>
-          <span>{book.author}</span>
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-muted-foreground leading-relaxed">{book.description}</p>
 
-        <Card className="bg-secondary/10 border-secondary/20">
-          <CardContent className="pt-4">
-            <div className="flex items-start gap-2">
-              <span className="text-secondary text-lg">💭</span>
-              <div>
-                <p className="font-medium text-secondary mb-1">Pourquoi je le recommande</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{book.why}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <h3 className="font-playfair text-3xl font-semibold leading-tight">{book.title}</h3>
+        <p className="mt-2 font-inter text-sm font-medium text-[#64574d]">{book.author}</p>
+        <p className="mt-5 font-inter text-sm leading-7 text-[#64574d]">{book.description}</p>
+        <p className="mt-4 border-t border-[#eadfd4] pt-4 font-inter text-sm leading-7 text-[#64574d]">
+          {book.why}
+        </p>
 
-        {book.amazon && (
-          <Button variant="outline" className="w-full" asChild>
+        {isUsableLink(book.amazon) && (
+          <Button asChild variant="outline" className="mt-auto rounded-full">
             <a href={book.amazon} target="_blank" rel="noopener noreferrer">
-              📖 Voir en ligne
+              Voir en ligne
+              <ExternalLink className="ml-2 h-4 w-4" />
             </a>
           </Button>
         )}
-      </CardContent>
-    </Card>
-  );
-}, (prevProps, nextProps) => prevProps.book.id === nextProps.book.id);
+      </article>
+    );
+  },
+  (prevProps, nextProps) => prevProps.book.id === nextProps.book.id,
+);
 
 export default Recommendations;

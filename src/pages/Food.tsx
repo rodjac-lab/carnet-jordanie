@@ -1,8 +1,22 @@
-import { memo, useMemo } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { memo } from "react";
 import { Header } from "@/components/Header";
-import { getFoodExperiences, FoodExperience } from "@/data/foodExperiences";
+import { FoodExperience, getFoodExperiences } from "@/data/foodExperiences";
+import { MapPin, Star, Utensils } from "lucide-react";
+
+const image = (name: string) => `${import.meta.env.BASE_URL}jordan/selected-v1/${name}.webp`;
+
+const heroPhotos = [
+  image("PXL_20250731_110642120"),
+  image("PXL_20250802_100239818.MP"),
+  image("PXL_20250802_084201064.MP"),
+];
+
+const foodImagesById: Record<string, string> = {
+  mansaf: image("PXL_20250802_100239818.MP"),
+  "falafel-houmous": image("PXL_20250731_110649692"),
+  grillades: image("PXL_20250731_110912629"),
+  "mint-tea-arabic-coffee": image("PXL_20250802_103518881"),
+};
 
 const Food = () => {
   const experiences = getFoodExperiences();
@@ -10,110 +24,155 @@ const Food = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-amber-950 dark:via-orange-950 dark:to-red-950 pt-20">
-        {/* Hero Section */}
-        <div className="relative pt-16 pb-24 bg-gradient-to-r from-primary via-secondary to-accent text-white overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="relative container mx-auto px-4 text-center">
-            <h1 className="text-6xl font-playfair font-bold mb-6 animate-fade-in">Voyage culinaire</h1>
-            <p className="text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in">
-              Découverte des saveurs authentiques de la Jordanie, entre traditions millénaires et hospitalité légendaire
+      <main className="min-h-screen bg-[#f7f2ea] pt-24 text-[#191512]">
+        <section className="px-5 py-16 md:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+            <div>
+              <div className="mb-5 flex items-center gap-3 text-[#9f4f35]">
+                <Utensils className="h-5 w-5" />
+                <span className="font-inter text-sm font-semibold uppercase tracking-wide">
+                  Gastronomie
+                </span>
+              </div>
+              <h1 className="font-playfair text-5xl font-bold leading-tight md:text-7xl">
+                Manger en Jordanie, c'est deja voyager.
+              </h1>
+              <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-[#64574d]">
+                En Jordanie, la table arrive souvent comme une halte bienvenue: du pain encore chaud, des assiettes qui
+                se multiplient, le the qui circule, et cette impression que le repas prolonge la route.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {heroPhotos.map((photo, index) => (
+                <img
+                  key={photo}
+                  src={photo}
+                  alt="Repas et restaurant en Jordanie"
+                  className={`h-80 w-full rounded-lg object-cover ${index === 1 ? "mt-12" : ""}`}
+                  loading="eager"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <img
+            src={image("PXL_20250731_110642120")}
+            alt="Table de mezze a Gerasa"
+            className="h-[360px] w-full rounded-lg object-cover shadow-2xl md:h-[560px]"
+            loading="lazy"
+          />
+          <div>
+            <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
+              A table
+            </p>
+            <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
+              Le souvenir passe autant par l'assiette que par les sites.
+            </h2>
+            <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
+              Apres les pierres de Jerash, les ruelles de Salt ou les heures de chaleur, il y a ces tables simples ou
+              tout se pose au milieu. On pioche, on partage, on ralentit. La cuisine devient une autre maniere de
+              comprendre le pays.
             </p>
           </div>
-        </div>
+        </section>
 
-        <div className="container mx-auto px-4 py-16 space-y-8">
-          {/* Introduction */}
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">🍽️ L'art de vivre jordanien</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                La cuisine jordanienne reflète la richesse culturelle du pays : influences bédouines, palestiniennes, syriennes
-                et libanaises se mélangent pour créer une gastronomie unique. Chaque repas est une invitation au partage, une
-                célébration de l'hospitalité légendaire jordanienne.
+        <section className="mx-auto max-w-7xl px-5 py-20">
+          <div className="mb-10 grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-end">
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
+                Saveurs
               </p>
-            </CardContent>
-          </Card>
+              <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-5xl">
+                Des assiettes qui racontent l'hospitalite
+              </h2>
+            </div>
+            <p className="font-inter text-lg leading-8 text-[#64574d]">
+              Rien de solennel ici: des repas de route, des tables familiales, des verres de the, des grillades, du
+              houmous, du mansaf. Juste ce qu'il faut pour retrouver le gout du voyage.
+            </p>
+          </div>
 
-          <div className="grid gap-8 max-w-4xl mx-auto">
+          <div className="grid gap-5 md:grid-cols-2">
             {experiences.map((experience) => (
               <FoodExperienceCard key={experience.id} experience={experience} />
             ))}
           </div>
+        </section>
 
-          {/* Cultural Note */}
-          <Card className="mt-12 max-w-4xl mx-auto shadow-lg border-l-4 border-l-primary">
-            <CardHeader>
-              <CardTitle className="text-xl text-primary">🌟 L'hospitalité jordanienne à table</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                En Jordanie, refuser un thé ou un café est presque impossible ! L'hospitalité ("karam" en arabe) est
-                profondément ancrée dans la culture. Les repas sont des moments sacrés de partage, où l'on prend le temps de
-                discuter, de rire et de créer des liens. J'ai été invité à plusieurs reprises par des inconnus qui
-                souhaitaient simplement partager leur table et leur culture.
+        <section className="bg-[#18130f] px-5 py-20 text-white">
+          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#d2a36f]">
+                Restaurants
               </p>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground">Les saveurs continuent de danser dans mes souvenirs... 🌶️</p>
+              <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
+                Le gout du voyage tient aussi dans les pauses.
+              </h2>
+              <p className="mt-6 font-inter text-lg leading-8 text-white/70">
+                Un cafe a Salt, une biere fraiche apres une longue journee, un repas improvise quand la chaleur retombe:
+                ce sont souvent ces moments plus simples qui restent, entre deux paysages immenses.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <img
+                src={image("PXL_20250810_163422281")}
+                alt="Biere Petra en Jordanie"
+                className="h-72 w-full rounded-lg object-cover"
+                loading="lazy"
+              />
+              <img
+                src={image("PXL_20250802_103518881")}
+                alt="The et cafe a Salt"
+                className="mt-10 h-72 w-full rounded-lg object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 };
 
-const FoodExperienceCard = memo(({ experience }: { experience: FoodExperience }) => {
-  const stars = useMemo(() => "⭐".repeat(experience.rating), [experience.rating]);
+const FoodExperienceCard = memo(
+  ({ experience }: { experience: FoodExperience }) => {
+    const photo = foodImagesById[experience.id] ?? image("PXL_20250731_110642120");
 
-  return (
-    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <CardHeader>
-        <div className="flex items-start justify-between">
-          <div className="space-y-2">
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
-                {experience.type}
-              </Badge>
-              <Badge className="bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100">
-                {experience.price}
-              </Badge>
-            </div>
-            <CardTitle className="text-2xl">{experience.name}</CardTitle>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>📍</span>
-              <span>{experience.location}</span>
-            </div>
-            <div className="text-lg" aria-label={`Note ${experience.rating} sur 5`}>
-              {stars}
-            </div>
+    return (
+      <article className="overflow-hidden rounded-lg bg-white shadow-sm">
+        <img
+          src={photo}
+          alt={experience.name}
+          className="h-72 w-full object-cover"
+          loading="lazy"
+        />
+        <div className="p-6">
+          <div className="mb-4 flex flex-wrap items-center gap-3 font-inter text-xs font-semibold uppercase tracking-wide text-[#9f4f35]">
+            <span>{experience.type}</span>
+            <span>{experience.price}</span>
           </div>
-          <div className="text-sm text-muted-foreground">{experience.price}</div>
+          <h3 className="font-playfair text-3xl font-semibold">{experience.name}</h3>
+          <div className="mt-3 flex items-center gap-2 font-inter text-sm text-[#64574d]">
+            <MapPin className="h-4 w-4" />
+            <span>{experience.location}</span>
+          </div>
+          <div className="mt-3 flex gap-1 text-[#b9573c]" aria-label={`Note ${experience.rating} sur 5`}>
+            {Array.from({ length: experience.rating }, (_, index) => (
+              <Star key={index} className="h-4 w-4 fill-current" />
+            ))}
+          </div>
+          <p className="mt-5 font-inter text-sm leading-7 text-[#64574d]">{experience.description}</p>
+          <p className="mt-4 border-t border-[#eadfd4] pt-4 font-inter text-sm leading-7 text-[#64574d]">
+            {experience.experience}
+          </p>
         </div>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Description</h3>
-          <p className="text-muted-foreground leading-relaxed">{experience.description}</p>
-        </div>
-        <Card className="bg-secondary/10 border-secondary/20">
-          <CardContent className="pt-4">
-            <div className="flex items-start gap-2">
-              <span className="text-secondary text-lg">🍴</span>
-              <div>
-                <p className="font-medium text-secondary mb-1">Mon expérience</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{experience.experience}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </CardContent>
-    </Card>
-  );
-}, (prevProps, nextProps) => prevProps.experience.id === nextProps.experience.id);
+      </article>
+    );
+  },
+  (prevProps, nextProps) => prevProps.experience.id === nextProps.experience.id,
+);
 
 export default Food;

@@ -8,8 +8,14 @@ import { diagnosticTools, getJournalStats } from '@/lib/journalStorage';
 import { toast } from 'sonner';
 import { Download, Upload, RefreshCw, Trash2, Search } from 'lucide-react';
 
+type DiagnosticData = {
+  stats: ReturnType<typeof getJournalStats>;
+  storage: ReturnType<typeof diagnosticTools.inspectStorage>;
+  timestamp: string;
+};
+
 export const JournalDiagnostic: React.FC = () => {
-  const [diagnosticData, setDiagnosticData] = useState<any>(null);
+  const [diagnosticData, setDiagnosticData] = useState<DiagnosticData | null>(null);
   const [importData, setImportData] = useState('');
 
   const runDiagnostic = () => {
