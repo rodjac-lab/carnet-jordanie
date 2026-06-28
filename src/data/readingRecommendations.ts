@@ -11,6 +11,18 @@ export interface BookRecommendation {
 
 export const readingRecommendations: BookRecommendation[] = [
   {
+    id: 'derniere-chance',
+    title: 'La Dernière Chance',
+    author: 'Abdallah II de Jordanie',
+    type: 'Récit politique',
+    description:
+      "Un récit de première main sur la Jordanie contemporaine, le processus de paix, les équilibres régionaux et la place très particulière du royaume au Moyen-Orient.",
+    why:
+      "Lu pendant le voyage, c'est le livre qui donne le plus de profondeur aux routes, aux villes et aux frontières traversées. Il s'arrête au début des années 2010, mais il reste précieux pour comprendre la Jordanie de l'intérieur.",
+    amazon: 'https://fr.wikipedia.org/wiki/Abdallah_II#Publications',
+    rating: 5,
+  },
+  {
     id: 'lawrence-arabie',
     title: "Lawrence d'Arabie",
     author: 'T.E. Lawrence',

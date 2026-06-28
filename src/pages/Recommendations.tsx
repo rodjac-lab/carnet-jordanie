@@ -26,11 +26,12 @@ const Recommendations = () => {
                 </span>
               </div>
               <h1 className="font-playfair text-5xl font-bold leading-tight md:text-7xl">
-                Quelques portes d'entree pour prolonger le voyage.
+                Lire la Jordanie pendant qu'on la traverse.
               </h1>
               <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-[#64574d]">
-                Cette page reste secondaire: elle rassemble des pistes pour comprendre Petra, le Wadi Rum, les Bedouins,
-                la cuisine et le contexte du pays.
+                Un livre a vraiment accompagne le voyage: le recit d'Abdallah II, entre souvenirs personnels,
+                diplomatie et histoire recente. Le reste de la bibliotheque prolonge cette envie de comprendre le pays
+                au-dela des images.
               </p>
             </div>
 
@@ -63,12 +64,53 @@ const Recommendations = () => {
               Comprendre
             </p>
             <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
-              Les livres viennent apres les photos.
+              Un pays se lit aussi entre deux étapes.
             </h2>
             <p className="mt-6 font-inter text-lg leading-8 text-[#64574d]">
-              L'album porte le souvenir. Les lectures donnent un peu de profondeur: histoire nabateenne, culture
-              bedouine, geopolitique et cuisine du Moyen-Orient.
+              Les photos gardent les couleurs du voyage. Les livres, eux, replacent Petra, Amman, Salt ou le Wadi Rum
+              dans une histoire plus large: royaute hachemite, frontieres fragiles, diplomatie, culture bedouine et
+              cuisine du Moyen-Orient.
             </p>
+          </div>
+        </section>
+
+        <section className="bg-[#18130f] px-5 py-20 text-white">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+            <div className="mx-auto w-full max-w-sm">
+              <div className="relative aspect-[2/3] rounded-lg bg-[#f4eadb] p-8 text-[#191512] shadow-2xl">
+                <div className="absolute inset-y-0 left-0 w-4 rounded-l-lg bg-[#9f4f35]" />
+                <p className="font-inter text-xs font-semibold uppercase tracking-wide text-[#9f4f35]">
+                  Abdallah II de Jordanie
+                </p>
+                <h2 className="mt-8 font-playfair text-5xl font-bold leading-tight">
+                  La Dernière Chance
+                </h2>
+                <p className="mt-6 font-inter text-sm font-semibold uppercase tracking-wide text-[#64574d]">
+                  La recherche de la paix à l'heure des périls
+                </p>
+                <div className="absolute bottom-8 left-8 right-8 border-t border-[#d6c5ad] pt-5 font-inter text-sm text-[#64574d]">
+                  Récit politique publié en 2011
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#d2a36f]">
+                Le livre du voyage
+              </p>
+              <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-6xl">
+                Comprendre la Jordanie depuis le palais, mais aussi depuis la route.
+              </h2>
+              <p className="mt-6 font-inter text-lg leading-8 text-white/75">
+                Ce n'est pas seulement un livre sur la paix au Moyen-Orient. C'est aussi une porte d'entree vers la
+                position unique de la Jordanie: un royaume stable au milieu de lignes de fracture, oblige de composer
+                avec l'histoire palestinienne, l'Irak, Israel, la Syrie, les allies occidentaux et le monde arabe.
+              </p>
+              <p className="mt-5 font-inter text-lg leading-8 text-white/75">
+                Le recit s'arrete un peu tot, au debut des annees 2010, mais il donne une profondeur particuliere au
+                voyage. A lire avant de partir, ou pendant, quand les paysages deviennent aussi une carte politique.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -76,15 +118,15 @@ const Recommendations = () => {
           <div className="mb-10 grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-end">
             <div>
               <p className="font-inter text-sm font-semibold uppercase tracking-wide text-[#9f4f35]">
-                Bibliotheque
+                Bibliothèque
               </p>
               <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight md:text-5xl">
                 Pistes de lecture
               </h2>
             </div>
             <p className="font-inter text-lg leading-8 text-[#64574d]">
-              On pourra remplacer les references plus tard si tu as tes propres livres. La mise en page est maintenant
-              raccord avec le reste du site.
+              Une selection courte, pas une bibliographie exhaustive: un livre lu sur place, puis quelques pistes pour
+              relier les souvenirs aux grandes histoires du pays.
             </p>
           </div>
 
