@@ -1,6 +1,7 @@
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { jordanMoments, type JordanMoment } from "@/data/moments";
-import { X } from "lucide-react";
+import { ArrowUp, X } from "lucide-react";
 import { useState } from "react";
 
 const featuredSlugs = new Set(["petra-siq", "wadi-rum", "ballon-mer"]);
@@ -167,6 +168,9 @@ const MomentPhotos = ({
 
 const Gallery = () => {
   const [activePhoto, setActivePhoto] = useState<{ src: string; alt: string } | null>(null);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -234,7 +238,29 @@ const Gallery = () => {
             </article>
           ))}
         </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-20">
+          <div className="rounded-lg bg-[#191512] px-6 py-8 text-white md:flex md:items-center md:justify-between md:px-10">
+            <div>
+              <p className="font-inter text-xs font-semibold uppercase tracking-wide text-[#d2a36f]">
+                Fin de l'album
+              </p>
+              <h2 className="mt-3 font-playfair text-3xl font-bold md:text-4xl">
+                Revenir au debut ou continuer la visite.
+              </h2>
+            </div>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-inter text-sm font-semibold text-[#191512] transition hover:bg-[#f7f2ea] focus:outline-none focus:ring-2 focus:ring-[#d2a36f] focus:ring-offset-2 focus:ring-offset-[#191512] md:mt-0"
+            >
+              <ArrowUp className="h-4 w-4" />
+              Retour en haut
+            </button>
+          </div>
+        </section>
       </div>
+      <Footer />
 
       {activePhoto && (
         <div

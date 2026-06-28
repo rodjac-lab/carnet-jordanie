@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { BookRecommendation, getReadingRecommendations } from "@/data/readingRecommendations";
 import { BookOpenCheck, ExternalLink, Star } from "lucide-react";
@@ -94,6 +95,7 @@ const Recommendations = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 };

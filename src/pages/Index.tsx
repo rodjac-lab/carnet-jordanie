@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Camera, Route, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -146,6 +147,7 @@ const Index = () => {
           </Button>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { FoodExperience, getFoodExperiences } from "@/data/foodExperiences";
 import { MapPin, Star, Utensils } from "lucide-react";
@@ -133,6 +134,7 @@ const Food = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 };
