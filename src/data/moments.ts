@@ -54,7 +54,7 @@ export const jordanMoments: JordanMoment[] = [
     cover: image("PXL_20250801_130723270"),
     images: [
       image("PXL_20250801_111830966"),
-      image("PXL_20250801_193045755.MP"),
+      image("PXL_20250801_130403250"),
       image("PXL_20250801_130723270"),
       image("PXL_20250801_135618644"),
       image("PXL_20250801_130047123"),
