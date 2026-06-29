@@ -9,7 +9,7 @@ const image = (name: string) => `${import.meta.env.BASE_URL}jordan/selected-v1/$
 const heroDesktopImage = image("PXL_20250805_064921907");
 const heroMobileImage = image("PXL_20250805_055643148");
 const wadiRumBalloonImage = image("PXL_20250808_033623612.PANO");
-const ammanDinnerImage = image("PXL_20250801_113007572");
+const ammanModernImage = image("PXL_20250801_193045755.MP");
 const saltMarketImage = image("PXL_20250802_084201064.MP");
 const ammanStreetImage = image("PXL_20250812_174127188");
 const petraNightImage = image("PXL_20250806_183501196.NIGHT");
@@ -88,8 +88,8 @@ const Index = () => {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={ammanDinnerImage}
-              alt="Repas partagé en Jordanie"
+              src={ammanModernImage}
+              alt="Amman moderne le soir"
               className="h-72 w-full rounded-lg object-cover"
               loading="lazy"
             />

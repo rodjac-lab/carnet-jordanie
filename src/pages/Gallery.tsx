@@ -1,10 +1,10 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { jordanMoments, type JordanMoment } from "@/data/moments";
-import { ArrowUp, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useState } from "react";
 
-const featuredSlugs = new Set(["petra-siq", "wadi-rum", "ballon-mer"]);
+const featuredSlugs = new Set(["petra-siq", "wadi-rum"]);
 
 const layoutBySlug: Record<string, "cinema" | "split" | "mosaic"> = {
   amman: "split",
@@ -15,7 +15,7 @@ const layoutBySlug: Record<string, "cinema" | "split" | "mosaic"> = {
   "petra-siq": "cinema",
   "petra-night": "mosaic",
   "wadi-rum": "cinema",
-  "ballon-mer": "cinema",
+  mers: "split",
 };
 
 const Photo = ({
@@ -58,6 +58,30 @@ const MomentPhotos = ({
 }) => {
   const layout = layoutBySlug[moment.slug] ?? "mosaic";
 
+  if (moment.slug === "mers") {
+    return (
+      <div className="grid gap-3 md:grid-cols-[0.9fr_1.1fr]">
+        <Photo
+          src={moment.images[0]}
+          alt={`${moment.title} - photo principale`}
+          className="aspect-[4/5] md:h-[640px] md:aspect-auto"
+          onOpen={onOpen}
+        />
+        <div className="grid grid-cols-2 gap-3">
+          {moment.images.slice(1).map((photo, index) => (
+            <Photo
+              key={photo}
+              src={photo}
+              alt={`${moment.title} - photo ${index + 2}`}
+              className="aspect-[4/5]"
+              onOpen={onOpen}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   if (layout === "cinema") {
     if (moment.slug === "wadi-rum") {
       return (
@@ -68,14 +92,24 @@ const MomentPhotos = ({
             className="aspect-[16/10] lg:aspect-[16/8]"
             onOpen={onOpen}
           />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
-            {moment.images.slice(1).map((photo, index) => (
+          <div className="grid gap-3 sm:grid-cols-2">
+            {moment.images.slice(1, 3).map((photo, index) => (
               <Photo
                 key={photo}
                 src={photo}
                 alt={`${moment.title} - detail ${index + 1}`}
-                className="shadow-sm"
-                fit="contain"
+                className="aspect-[4/5] lg:h-[420px] lg:aspect-auto"
+                onOpen={onOpen}
+              />
+            ))}
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {moment.images.slice(3).map((photo, index) => (
+              <Photo
+                key={photo}
+                src={photo}
+                alt={`${moment.title} - ballon ${index + 1}`}
+                className="aspect-[4/5] lg:h-[420px] lg:aspect-auto"
                 onOpen={onOpen}
               />
             ))}
@@ -168,9 +202,6 @@ const MomentPhotos = ({
 
 const Gallery = () => {
   const [activePhoto, setActivePhoto] = useState<{ src: string; alt: string } | null>(null);
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <>
@@ -190,7 +221,7 @@ const Gallery = () => {
               </p>
             </div>
             <div className="grid grid-cols-3 gap-3">
-              {[jordanMoments[0].images[2], jordanMoments[4].images[1], jordanMoments[8].images[4]].map((photo) => (
+              {[jordanMoments[0].images[2], jordanMoments[4].images[1], jordanMoments[8].images[0]].map((photo) => (
                 <img
                   key={photo}
                   src={photo}
@@ -237,27 +268,6 @@ const Gallery = () => {
               <MomentPhotos moment={moment} onOpen={setActivePhoto} />
             </article>
           ))}
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 pb-20">
-          <div className="rounded-lg bg-[#191512] px-6 py-8 text-white md:flex md:items-center md:justify-between md:px-10">
-            <div>
-              <p className="font-inter text-xs font-semibold uppercase tracking-wide text-[#d2a36f]">
-                Fin de l'album
-              </p>
-              <h2 className="mt-3 font-playfair text-3xl font-bold md:text-4xl">
-                Revenir au début ou continuer la visite.
-              </h2>
-            </div>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-inter text-sm font-semibold text-[#191512] transition hover:bg-[#f7f2ea] focus:outline-none focus:ring-2 focus:ring-[#d2a36f] focus:ring-offset-2 focus:ring-offset-[#191512] md:mt-0"
-            >
-              <ArrowUp className="h-4 w-4" />
-              Retour en haut
-            </button>
-          </div>
         </section>
       </div>
       <Footer />
