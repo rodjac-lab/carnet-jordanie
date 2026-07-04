@@ -1,6 +1,3 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
@@ -26,10 +23,7 @@ const App = () => {
   const basename = import.meta.env.PROD ? "/carnet-jordanie/" : "/";
 
   return (
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename={basename}>
+    <BrowserRouter basename={basename}>
       <Suspense fallback={<LoadingPage />}>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -40,7 +34,6 @@ const App = () => {
         </Routes>
       </Suspense>
     </BrowserRouter>
-  </TooltipProvider>
   );
 };
 

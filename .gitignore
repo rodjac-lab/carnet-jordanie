@@ -28,3 +28,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Photos originales avant import (script scripts/import-photos.sh)
+photos-inbox/

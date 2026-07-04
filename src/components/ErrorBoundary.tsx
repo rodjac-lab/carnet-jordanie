@@ -73,7 +73,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
               <Button onClick={this.handleReset} variant="default">
                 Réessayer
               </Button>
-              <Button onClick={() => window.location.href = '/'} variant="outline">
+              <Button onClick={() => window.location.href = import.meta.env.BASE_URL} variant="outline">
                 Retour à l'accueil
               </Button>
             </div>

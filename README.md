@@ -51,6 +51,14 @@ Les photos optimisées WebP utilisées par le site sont dans :
 public/jordan/selected-v1/
 ```
 
+Pour ajouter des photos : déposer les originaux dans `photos-inbox/` (non versionné) puis lancer :
+
+```bash
+./scripts/import-photos.sh
+```
+
+Le script redimensionne à 1600px max, convertit en WebP et supprime les métadonnées EXIF (dont le GPS — le site est public). Ensuite, référencer les nouveaux fichiers dans `src/data/moments.ts` ; `npm run test` vérifie que chaque image référencée existe.
+
 Les moments de l'album sont définis dans :
 
 ```text
