@@ -28,11 +28,11 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
-      - name: Use Node.js 20 (fallback)
+      - name: Use Node.js 24 (fallback)
         if: hashFiles('.nvmrc') == ''
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - name: Align npm to packageManager version
