@@ -31,3 +31,6 @@ dist-ssr
 
 # Photos originales avant import (script scripts/import-photos.sh)
 photos-inbox/
+
+# Matière brute interview (jamais publiée)
+INTERVIEW.md
